@@ -1,5 +1,8 @@
 {
-	"name": "grok-cli-mcp",
+	"name": "@minmax-npm/grok-cli-mcp",
+	"publishConfig": {
+		"access": "public"
+	},
 	"version": "0.1.0",
 	"description": "MCP server that delegates coding tasks to your locally installed Grok Build CLI. Wraps the real grok binary instead of bundling its own copy of the agent, so it inherits your auth, models and MCP servers. Sessions survive restarts, calls are cancellable, and each run reports tools used and tokens.",
 	"type": "module",
