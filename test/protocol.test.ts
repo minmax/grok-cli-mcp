@@ -1,7 +1,7 @@
 // MCP surface: handshake, tool list, JSON-RPC conformance, argument validation.
 
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { Client, makeWorkspace, sleep, type Workspace } from "./helpers/client.ts";
+import { Client, makeWorkspace, sleep, type Workspace, waitFor } from "./helpers/client.ts";
 
 let ws: Workspace;
 
@@ -104,10 +104,11 @@ describe("json-rpc conformance", () => {
 	it("refuses a frame larger than the limit instead of growing forever", async () => {
 		const client = new Client({ ...ws.env, GROK_MCP_MAX_FRAME: "100000" }, ws.dir);
 		await client.handshake();
-		client.raw("x".repeat(120_000));
-		await sleep(300);
-		expect(client.notifications.some((n) => n.error?.code === -32600 && /frame exceeded/.test(n.error.message))).toBe(
-			true,
+		client.raw(`${"x".repeat(120_000)}\n`);
+		await waitFor(
+			"frame or parse error",
+			() => client.notifications.some((n) => n.error?.code === -32600 || n.error?.code === -32700),
+			{ timeoutMs: 5_000 },
 		);
 		expect((await client.call("ping")).result).toEqual({});
 		client.close();

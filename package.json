@@ -1,5 +1,5 @@
 {
-	"name": "@minmax-npm/grok-cli-mcp",
+	"name": "grok-code-mcp",
 	"publishConfig": {
 		"access": "public"
 	},
@@ -43,7 +43,7 @@
 		"claude-code",
 		"delegation"
 	],
-	"author": "Karataev Pavel <pavel.karataev@astrum.team>",
+	"author": "Karataev Pavel (https://github.com/minmax)",
 	"license": "MIT",
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.9",

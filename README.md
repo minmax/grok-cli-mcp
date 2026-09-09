@@ -1,4 +1,4 @@
-# @minmax-npm/grok-cli-mcp
+# grok-code-mcp
 
 MCP server that delegates coding tasks to your **locally installed**
 [Grok Build](https://x.ai/cli) CLI (`grok`).
@@ -41,7 +41,7 @@ Or run the published npm package:
 claude mcp add-json grok -s user '{
   "type": "stdio",
   "command": "npx",
-  "args": ["-y", "@minmax-npm/grok-cli-mcp"],
+  "args": ["-y", "grok-code-mcp"],
   "timeout": 3600000
 }'
 ```

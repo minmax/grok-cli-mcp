@@ -12,7 +12,7 @@ Status: v1. Implementation: one package, zero runtime dependencies.
 
 | | |
 |---|---|
-| package | `@minmax-npm/grok-cli-mcp` |
+| package | `grok-code-mcp` |
 | bin | `grok-cli-mcp` |
 | MCP server name | `grok` |
 | Tool prefix | `grok_` |
